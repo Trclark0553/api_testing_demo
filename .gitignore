@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+venv/
+.env
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Test output
+htmlcov/
+.allure-results/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
