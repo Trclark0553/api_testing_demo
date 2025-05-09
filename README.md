@@ -1,5 +1,7 @@
 # API Testing Demo (Pytest + JSONPlaceholder)
 
+[![API Test CI](https://github.com/Trclark0553/api_testing_demo/actions/workflows/ci.yaml/badge.svg)](https://github.com/Trclark0553/api_testing_demo/actions/workflows/ci.yaml)
+
 This project demonstrates automated API testing using **Python** and **Pytest**, targeting the open [JSONPlaceholder API](https://jsonplaceholder.typicode.com). It covers positive and negative test scenarios for API endpoints, simulating real-world QA automation workflows.
 
 ---
