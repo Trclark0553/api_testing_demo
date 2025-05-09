@@ -31,25 +31,27 @@ jobs:
     - name: Install Allure CLI
       run: |
         sudo apt-get update
-        sudo apt-get install -y default-jre  # Allure requires Java
-        sudo apt-get install -y allure
+        sudo apt-get install -y default-jre
+        sudo wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+        sudo tar -zxvf allure-2.27.0.tgz -C /opt/
+        sudo ln -s /opt/allure-2.27.0/bin/allure /usr/bin/allure
 
 # Running Pytest with Allure makes reporting results professional and readable.
 # It shows what failed, why, and where.
     - name: Run Pytest with Allure
       run: |
         pytest --alluredir=allure-results
+        
+    - name: Generate Allure HTML Report
+      run: |
+        pip install allure-pytest  # Ensure Allure is installed
+        allure generate allure-results --clean -o allure-report
 
     - name: Upload Allure Results as Artifact
       uses: actions/upload-artifact@v4
       with:
         name: allure-results
         path: allure-results/
-
-    - name: Generate Allure HTML Report
-      run: |
-        pip install allure-pytest  # Ensure Allure is installed
-        allure generate allure-results --clean -o allure-report
 
     - name: Upload Allure HTML Report
       uses: actions/upload-artifact@v4
