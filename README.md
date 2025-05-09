@@ -5,13 +5,14 @@ This project demonstrates automated API testing using **Python** and **Pytest**,
 ---
 
 ## Project Structure
-api-testing-demo/
-├── .github/workflows/ # (To be added) CI pipeline with GitHub Actions
-├── postman/ # (Optional) Postman collection and environment files
-├── tests/
-│ └── test_api.py # Automated API tests using Pytest
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
+
+api-testing-demo/  
+├── .github/workflows/    # (To be added) CI pipeline with GitHub Actions  
+├── postman/              # (Optional) Postman collection and environment files  
+├── tests/  
+│   └── test_api.py       # Automated API tests using Pytest  
+├── requirements.txt      # Python dependencies  
+└── README.md             # Project documentation
 
 ---
 
