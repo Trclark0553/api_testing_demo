@@ -1,4 +1,5 @@
 import requests
+import allure
 
 # Base URL for the API under test (JSONPlaceholder demo API)
 BASE_URL = "https://jsonplaceholder.typicode.com"
@@ -31,7 +32,16 @@ def test_post_not_found():
     data = response.json() if response.content else {}
     assert data == {}, "Expected empty JSON response for non-existent post"
 
-
+# Allure Metadata:
+# @allure.feature: Categorizes the test under a specific functional area (for organized reporting).
+# @allure.severity: Assigns the business or technical impact of the test case.
+# 
+# Purpose: 
+# These tags improve test report readability and help stakeholders quickly filter 
+# critical tests in the Allure report. This is especially valuable for identifying 
+# high-risk failures during release readiness assessments.
+@allure.feature("Posts API")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_create_post():
     """
     Test: Create a new post via POST
@@ -45,6 +55,14 @@ def test_create_post():
     }
 
     response = requests.post(f"{BASE_URL}/posts", json=payload)
+
+    # Attach raw response for debugging, for detailed response data in report
+    allure.attach(
+        response.text,
+        name="API Response",
+        attachment_type=allure.attachment_type.JSON,
+    )
+
     assert response.status_code == 201, "Expected status code 201 for successful post creation"
 
     data = response.json()
