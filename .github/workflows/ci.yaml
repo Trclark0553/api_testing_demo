@@ -1,0 +1,32 @@
+# A GitHub Actions workflow file for running API tests using Pytest.
+#  - Triggers on pushes and pull requests to the main or master branches.
+# The workflow sets up a Python environment, installs dependencies, and runs the tests.
+# Ensure you have a requirements.txt file in your repository with the necessary dependencies.
+name: API Test CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'  # Adjust if you're using a different version
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Pytest
+      run: pytest tests/
