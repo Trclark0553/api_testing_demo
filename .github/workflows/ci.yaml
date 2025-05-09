@@ -27,6 +27,14 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+# Running Pytest with Allure makes reporting results professional and readable.
+# It shows what failed, why, and where.
+    - name: Run Pytest with Allure
+      run: |
+        pytest --alluredir=allure-results
 
-    - name: Run Pytest
-      run: pytest tests/
+    - name: Upload Allure Results as Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-results
+        path: allure-results/
