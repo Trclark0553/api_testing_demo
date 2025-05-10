@@ -1,9 +1,21 @@
 import requests
 import allure
+import pytest
 
 # Base URL for the API under test (JSONPlaceholder demo API)
 BASE_URL = "https://jsonplaceholder.typicode.com"
 
+# Allure Metadata:
+# @allure.feature: Categorizes the test under a specific functional area (for organized reporting).
+# @allure.severity: Assigns the business or technical impact of the test case.
+# 
+# Purpose: 
+# These tags improve test report readability and help stakeholders quickly filter 
+# critical tests in the Allure report. This is especially valuable for identifying 
+# high-risk failures during release readiness assessments.
+
+@allure.feature("Posts API")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_get_post():
     """
     Test: Retrieve a single post by ID
@@ -18,7 +30,8 @@ def test_get_post():
     assert "title" in data, "Title field is missing in response payload"
     assert "body" in data, "Body field is missing in response payload"
 
-
+@allure.feature("Posts API")
+@allure.severity(allure.severity_level.NORMAL)
 def test_post_not_found():
     """
     Test: Attempt to retrieve a non-existent post
@@ -32,14 +45,6 @@ def test_post_not_found():
     data = response.json() if response.content else {}
     assert data == {}, "Expected empty JSON response for non-existent post"
 
-# Allure Metadata:
-# @allure.feature: Categorizes the test under a specific functional area (for organized reporting).
-# @allure.severity: Assigns the business or technical impact of the test case.
-# 
-# Purpose: 
-# These tags improve test report readability and help stakeholders quickly filter 
-# critical tests in the Allure report. This is especially valuable for identifying 
-# high-risk failures during release readiness assessments.
 @allure.feature("Posts API")
 @allure.severity(allure.severity_level.CRITICAL)
 def test_create_post():
@@ -71,3 +76,20 @@ def test_create_post():
     assert data["body"] == payload["body"], "Returned body does not match submitted data"
     assert data["userId"] == payload["userId"], "Returned userId does not match submitted data"
     assert "id" in data, "Response missing generated post ID"
+
+@allure.feature("Posts API")
+@allure.severity(allure.severity_level.MINOR)
+@pytest.mark.skip(reason="Skipping test for demonstration purposes")
+def test_update_post():
+    """Skipped Test: Placeholder for future PUT request test"""
+    pass
+    # This test is skipped to demonstrate my knowledge of the use of pytest.mark.skip
+
+@allure.feature("Posts API")
+@allure.severity(allure.severity_level.NORMAL)
+@pytest.mark.xfail(reason="Known issue: API does not support DELETE verification")
+def test_delete_post():
+    """Expected Failure Test: Attempt to delete a post (simulated)"""
+    response = requests.delete(f"{BASE_URL}/posts/1")
+    # JSONPlaceholder API does not actually delete, but we can check status
+    assert response.status_code == 200, #This will fail intentionally to show the xfail behavior
