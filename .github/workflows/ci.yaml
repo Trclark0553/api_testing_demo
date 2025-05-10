@@ -38,6 +38,10 @@ jobs:
 
 # Running Pytest with Allure makes reporting results professional and readable.
 # It shows what failed, why, and where.
+    - name: Clean Previous Allure Results
+      run: |
+        rm -rf allure-results
+        
     - name: Run Pytest with Allure
       run: |
         pytest --alluredir=allure-results
