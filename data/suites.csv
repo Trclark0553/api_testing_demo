@@ -1,15 +1,15 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Fri May 09 21:51:35 UTC 2025","Fri May 09 21:51:35 UTC 2025","21","tests","test_api","","","","test_post_not_found","
+"passed","Sat May 10 18:52:08 UTC 2025","Sat May 10 18:52:08 UTC 2025","76","tests","test_api","","","","test_post_not_found","
     Test: Attempt to retrieve a non-existent post
     Purpose: Validate the API correctly handles invalid post requests (negative test)
     Expected Result: HTTP 404 Not Found or empty response with HTTP 200 (JSONPlaceholder returns 200)
     "
-"passed","Fri May 09 21:51:35 UTC 2025","Fri May 09 21:51:35 UTC 2025","82","tests","test_api","","","","test_get_post","
+"passed","Sat May 10 18:52:08 UTC 2025","Sat May 10 18:52:08 UTC 2025","30","tests","test_api","","","","test_get_post","
     Test: Retrieve a single post by ID
     Purpose: Validate the API returns correct post data for a valid ID (positive test)
     Expected Result: HTTP 200 OK, and response contains expected post fields
     "
-"passed","Fri May 09 21:51:35 UTC 2025","Fri May 09 21:51:35 UTC 2025","46","tests","test_api","","","","test_create_post","
+"passed","Sat May 10 18:52:08 UTC 2025","Sat May 10 18:52:08 UTC 2025","35","tests","test_api","","","","test_create_post","
     Test: Create a new post via POST
     Purpose: Validate that the API successfully accepts new post data (positive test)
     Expected Result: HTTP 201 Created, and response includes submitted data
