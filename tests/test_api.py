@@ -1,6 +1,7 @@
 import requests
 import allure
 import pytest
+from pydantic import BaseModel, ValidationError
 
 # Base URL for the API under test (JSONPlaceholder demo API)
 BASE_URL = "https://jsonplaceholder.typicode.com"
@@ -93,3 +94,43 @@ def test_delete_post():
     response = requests.delete(f"{BASE_URL}/posts/1")
     # JSONPlaceholder API does not actually delete, but we can check status
     assert response.status_code == 200 #This will fail intentionally to show the xfail behavior
+
+
+# -----------------------------------------------
+# API Schema Validation Test using Pydantic
+# Purpose: Ensure that the API response structure 
+# for GET /posts/1 matches the expected schema.
+# This helps catch backend contract violations 
+# and enforces strong API response validation 
+# beyond simple status code checks.
+# -----------------------------------------------
+class PostModel(BaseModel):
+    """ Pydantic model for validating post data structure """
+    userId: int
+    id: int
+    title: str
+    body: str
+
+@allure.feature("Posts API")
+@allure.severity(allure.severity_level.CRITICAL)
+def test_get_post_schema_validation():
+    """
+    Test: Validate the schema of the retrieved post data
+    Purpose: Ensure the API response adheres to the expected schema (positive test)
+    Expected Result: HTTP 200 OK, and response matches Pydantic model
+    """
+    response = requests.get(f"{BASE_URL}/posts/1")
+    assert response.status_code == 200, "Expected status code 200 for existing post"
+
+    data = response.json()
+    try:
+        PostModel(**data)  # Validate against Pydantic model
+    except ValidationError as e:
+        # Attach detailed schema validation error to Allure report
+        allure.attach(
+            str(e),
+            name="Schema Validation Error",
+            attachment_type=allure.attachment_type.TEXT,
+        )
+        # Fail the test with a clear message
+        assert False, f"Schema validation failed: {e}"
