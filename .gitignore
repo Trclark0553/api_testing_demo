@@ -1,23 +1,32 @@
-# Python
+# Python Bytecode
 __pycache__/
 *.py[cod]
+*.pyo
 
-# Virtual Environment
+# Virtual Environment (if you use one)
 venv/
-.env
+.env/
 
-# Editor/IDE
+# Test Output
+allure-results/
+allure-report/
+
+# VS Code Settings (Optional)
 .vscode/
-.idea/
 
-# Test output
-htmlcov/
-.allure-results/
-*.log
-
-# OS files
+# OS Files
 .DS_Store
 Thumbs.db
 
-# Coverage reports
-allure-results/
+# GitHub Artifacts
+*.log
+
+# Ignore Postman Collection Artifacts (if not needed in repo)
+postman/*.postman_environment.json
+
+# Node Modules (if using any JS tooling)
+node_modules/
+
+# General Backup Files
+*.bak
+*.tmp
