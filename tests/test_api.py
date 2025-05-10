@@ -92,4 +92,4 @@ def test_delete_post():
     """Expected Failure Test: Attempt to delete a post (simulated)"""
     response = requests.delete(f"{BASE_URL}/posts/1")
     # JSONPlaceholder API does not actually delete, but we can check status
-    assert response.status_code == 200, #This will fail intentionally to show the xfail behavior
+    assert response.status_code == 200 #This will fail intentionally to show the xfail behavior
