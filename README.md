@@ -1,42 +1,70 @@
-# API Testing Demo (Pytest + JSONPlaceholder)
+# API & UI Testing Demo (Pytest + Allure Reporting + GitHub Actions CI)
 
-[![API Test CI](https://github.com/Trclark0553/api_testing_demo/actions/workflows/ci.yaml/badge.svg)](https://github.com/Trclark0553/api_testing_demo/actions/workflows/ci.yaml)
-
-This project demonstrates automated API testing using **Python** and **Pytest**, targeting the open [JSONPlaceholder API](https://jsonplaceholder.typicode.com). It covers positive and negative test scenarios for API endpoints, simulating real-world QA automation workflows.
-
----
-
-## Project Structure
-
-api-testing-demo/  
-├── .github/workflows/    # (To be added) CI pipeline with GitHub Actions  
-├── postman/              # (Optional) Postman collection and environment files  
-├── tests/  
-│   └── test_api.py       # Automated API tests using Pytest  
-├── requirements.txt      # Python dependencies  
-└── README.md             # Project documentation
-
----
-
-## Current Test Coverage
-
-- `GET /posts/1`: Validate retrieving a specific post.
-- `GET /posts/99999`: Negative test for non-existent post (expects 404).
-- `POST /posts`: Validate creating a new post with correct payload.
+This project demonstrates professional test automation for APIs using **Python**, **Pytest**, and **Allure Reporting**, with a fully automated **CI/CD pipeline using GitHub Actions**. It also integrates **Pydantic** for API schema validation and publishes clean, visual test reports via **GitHub Pages**.
 
 ---
 
 ## Notes for Hiring Managers
 
-- Demonstrates **API test automation** using Python and Pytest.
-- Follows clean code practices with QA-focused documentation and assertions.
-- Shows understanding of **positive and negative testing**.
-- Project is structured for easy extension to include CI pipelines and reporting tools.
+- Demonstrates advanced QA automation capabilities with API and reporting integrations.
+- Shows real-world CI/CD pipeline configuration with automated test execution and reporting.
+- Highlights structured, maintainable test code using best practices and modern tools.
 
 ---
 
-## Install & Run
+## Live Test Report
+
+[**View the Latest Allure Report Here**](https://trclark0553.github.io/api_testing_demo/)
+
+> _This report is automatically updated after every successful pipeline run._
+
+---
+
+## 📂 Project Structure
+
+```
+api-testing-demo/
+├── .github/workflows/ci.yml      # CI pipeline definition
+├── postman/                      # (Not yet implemented) Postman API collections
+├── tests/                        # Automated tests (API, Schema Validation)
+├── requirements.txt              # Python dependencies
+└── README.md                     # Project documentation
+```
+
+---
+
+## Current Test Coverage
+
+- **API Functional Tests:**
+  - Positive and negative scenarios for REST API endpoints.
+  - Request validation and response content checks.
+- **API Schema Validation:**
+  - Validates API response structure using **Pydantic** models.
+  - Fails gracefully with detailed Allure report attachments.
+- **Allure Reporting:**
+  - Integrated with CI pipeline and available via GitHub Pages.
+  - Includes metadata tagging, severity levels, and failure attachments.
+- **CI/CD Pipeline:**
+  - Fully automated using **GitHub Actions**.
+  - Publishes HTML reports as downloadable artifacts and live web reports.
+
+---
+
+## For running tests locally
 
 ```bash
 pip install -r requirements.txt
-pytest tests/
+pytest --alluredir=allure-results
+allure serve allure-results  # Requires Allure CLI installed
+```
+
+---
+
+## Planned Enhancements
+
+- Introduce **UI Automation Testing** with Selenium or Playwright.
+- Integrate UI tests into the same CI pipeline with unified Allure reporting.
+- Add API schema validation using `jsonschema` for broader tool exposure.
+- Explore test data management and parameterization for more scalable testing.
+
+---
