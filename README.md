@@ -28,11 +28,14 @@ This project demonstrates professional test automation for APIs using **Python**
 
 ```
 api-testing-demo/
-├── .github/workflows/ci.yml      # CI pipeline definition
-├── postman/                      # (Not yet implemented) Postman API collections
-├── tests/                        # Automated tests (API, Schema Validation)
-├── requirements.txt              # Python dependencies
-└── README.md                     # Project documentation
+├── .github/workflows/ci.yml # CI pipeline definition
+├── postman/ # (In Progress) Postman API collections
+├── tests/
+│ ├── test_api.py # API functional tests
+│ ├── test_ui.py # UI smoke tests (homepage and navigation)
+│ └── test_ui_forms.py # UI form interaction tests (login scenarios)
+├── requirements.txt # Python dependencies
+└── README.md # Project documentation
 ```
 
 ---
