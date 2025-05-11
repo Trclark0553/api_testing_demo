@@ -36,12 +36,16 @@ jobs:
         sudo tar -zxvf allure-2.27.0.tgz -C /opt/
         sudo ln -s /opt/allure-2.27.0/bin/allure /usr/bin/allure
 
+    - name: Install Playwright Browsers
+      run: |
+        playwright install
+
 # Running Pytest with Allure makes reporting results professional and readable.
 # It shows what failed, why, and where.
     - name: Clean Previous Allure Results
       run: |
         rm -rf allure-results
-        
+
     - name: Run Pytest with Allure
       run: |
         pytest --alluredir=allure-results
