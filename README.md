@@ -10,8 +10,8 @@ This project demonstrates professional test automation for APIs using **Python**
 
 ## Notes for Hiring Managers
 
-- Demonstrates advanced QA automation capabilities with API and reporting integrations.
-- Shows real-world CI/CD pipeline configuration with automated test execution and reporting.
+- Demonstrates full-stack QA automation with both API and UI test coverage.
+- Shows real-world CI/CD pipeline configuration and Allure reporting integration.
 - Highlights structured, maintainable test code using best practices and modern tools.
 
 ---
