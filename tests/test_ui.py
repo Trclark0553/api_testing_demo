@@ -33,9 +33,6 @@ def test_navigation_click():
         # Click the "More information..." link
         page.click("text=More information...")
 
-        # Wait for navigation to complete
-        page.wait_for_navigation()
-
         # Attach a screenshot to Allure report
         screenshot = page.screenshot()
         allure.attach(screenshot, name="navigation screenshot", attachment_type=allure.attachment_type.PNG)
