@@ -1,4 +1,4 @@
-![CI Status](https://github.com/Trclark0553/api_testing_demo/actions/workflows/ci.yml/badge.svg)
+![CI Status](https://github.com/Trclark0553/api_testing_demo/actions/workflows/ci.yaml/badge.svg)
 
 ---
 
