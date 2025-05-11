@@ -1,4 +1,8 @@
-# API & UI Testing Demo (Pytest + Allure Reporting + GitHub Actions CI)
+![CI Status](https://github.com/Trclark0553/api_testing_demo/actions/workflows/ci.yml/badge.svg)
+
+---
+
+# API & UI Testing Demo (Pytest + Playwright + Allure Reporting + GitHub Actions CI)
 
 This project demonstrates professional test automation for APIs using **Python**, **Pytest**, and **Allure Reporting**, with a fully automated **CI/CD pipeline using GitHub Actions**. It also integrates **Pydantic** for API schema validation and publishes clean, visual test reports via **GitHub Pages**.
 
@@ -41,19 +45,24 @@ api-testing-demo/
 - **API Schema Validation:**
   - Validates API response structure using **Pydantic** models.
   - Fails gracefully with detailed Allure report attachments.
+- **UI Automation Tests (Playwright):**
+  - Homepage title verification and navigation tests.
+  - Positive and negative form submission scenarios with screenshot attachments.
+  - Fully integrated with Allure reporting and CI pipeline.
 - **Allure Reporting:**
   - Integrated with CI pipeline and available via GitHub Pages.
   - Includes metadata tagging, severity levels, and failure attachments.
 - **CI/CD Pipeline:**
   - Fully automated using **GitHub Actions**.
   - Publishes HTML reports as downloadable artifacts and live web reports.
-
+  
 ---
 
 ## For running tests locally
 
 ```bash
 pip install -r requirements.txt
+playwright install
 pytest --alluredir=allure-results
 allure serve allure-results  # Requires Allure CLI installed
 ```
