@@ -34,14 +34,15 @@ def test_get_post(post_id):
 
 @allure.feature("Posts API")
 @allure.severity(allure.severity_level.NORMAL)
-def test_post_not_found():
+@pytest.mark.parametrize("post_id", [0, -1, 99999])
+def test_post_not_found(post_id):
     """
-    Test: Attempt to retrieve a non-existent post
+    Test: Attempt to retrieve non-existent posts
     Purpose: Validate the API correctly handles invalid post requests (negative test)
     Expected Result: HTTP 404 Not Found or empty response with HTTP 200 (JSONPlaceholder returns 200)
     """
-    response = requests.get(f"{BASE_URL}/posts/99999")
-    assert response.status_code == 404, "Expected HTTP 404 for non-existent post"
+    response = requests.get(f"{BASE_URL}/posts/{post_id}")
+    assert response.status_code == 404, f"Expected HTTP 404 for non-existent post ID {post_id}"
 
     #Confirm response body empty
     data = response.json() if response.content else {}
@@ -49,35 +50,35 @@ def test_post_not_found():
 
 @allure.feature("Posts API")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_create_post():
+@pytest.mark.parametrize("name, job", [
+    ("Jake Fernanded", "Software Engineer"),
+    ("Travis Clark", "QA Tester"),
+    ("Karl Storz", "CEO")
+])
+def test_create_post(name, job):
     """
-    Test: Create a new post via POST
+    Test: Create a new post via POST with various payloads
     Purpose: Validate that the API successfully accepts new post data (positive test)
     Expected Result: HTTP 201 Created, and response includes submitted data
     """
-    payload = {
-        "title": "Automation Test Post",
-        "body": "This is a test created by automated API testing.",
-        "userId": 1
-    }
-
+    payload = {"name": name, "job": job}
     response = requests.post(f"{BASE_URL}/posts", json=payload)
-
-    # Attach raw response for debugging, for detailed response data in report
-    allure.attach(
-        response.text,
-        name="API Response",
-        attachment_type=allure.attachment_type.JSON,
-    )
 
     assert response.status_code == 201, "Expected status code 201 for successful post creation"
 
+    if response.status_code != 201:
+        # Attach the response content to Allure report for debugging
+        allure.attach(
+            response.text,
+            name="Response Content",
+            attachment_type=allure.attachment_type.TEXT,
+        )
+
     data = response.json()
     # Validate submitted data is echoed back
-    assert data["title"] == payload["title"], "Returned title does not match submitted data"
-    assert data["body"] == payload["body"], "Returned body does not match submitted data"
-    assert data["userId"] == payload["userId"], "Returned userId does not match submitted data"
-    assert "id" in data, "Response missing generated post ID"
+    assert data["name"] == name, "Returned name does not match submitted name"
+    assert data["job"] == job, "Returned job does not match submitted job"
+    assert "id" in data, "ID field is missing in response payload"
 
 @allure.feature("Posts API")
 @allure.severity(allure.severity_level.MINOR)
