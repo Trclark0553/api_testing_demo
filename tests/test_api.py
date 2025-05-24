@@ -17,17 +17,18 @@ BASE_URL = "https://jsonplaceholder.typicode.com"
 
 @allure.feature("Posts API")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_get_post():
+@pytest.mark.parametrize("post_id", [1, 5, 10])
+def test_get_post(post_id):
     """
-    Test: Retrieve a single post by ID
-    Purpose: Validate the API returns correct post data for a valid ID (positive test)
+    Test: Retrieve a post by ID
+    Purpose: Validate the API returns correct post data for multiple valid IDs (positive test)
     Expected Result: HTTP 200 OK, and response contains expected post fields
     """
-    response = requests.get(f"{BASE_URL}/posts/1")
-    assert response.status_code == 200, "Expected status code 200 for existing post"
+    response = requests.get(f"{BASE_URL}/posts/{post_id}")
+    assert response.status_code == 200, f"Expected status code 200 for post ID {post_id}"
 
     data = response.json()
-    assert data["id"] == 1, "Returned post ID does not match requested ID"
+    assert data["id"] == post_id, "Returned post ID does not match requested ID"
     assert "title" in data, "Title field is missing in response payload"
     assert "body" in data, "Body field is missing in response payload"
 
