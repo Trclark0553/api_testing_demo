@@ -43,8 +43,9 @@ api-testing-demo/
 ## Current Test Coverage
 
 - **API Functional Tests:**
-  - Positive and negative scenarios for REST API endpoints.
-  - Request validation and response content checks.
+  - Parameterized positive and negative scanarios for REST API endpoints.
+  - Data-driven request validation with diverse input combinations.
+  - Clean separation of happy path and error path testing.
 - **API Schema Validation:**
   - Validates API response structure using **Pydantic** models.
   - Fails gracefully with detailed Allure report attachments.
@@ -74,9 +75,8 @@ allure serve allure-results  # Requires Allure CLI installed
 
 ## Planned Enhancements
 
-- Introduce **UI Automation Testing** with Selenium or Playwright.
-- Integrate UI tests into the same CI pipeline with unified Allure reporting.
 - Add API schema validation using `jsonschema` for broader tool exposure.
-- Explore test data management and parameterization for more scalable testing.
+- Explore test data management and historical reporting for Allure.
+- Add additional UI scenarios with dynamic elements and conditional waits.
 
 ---
