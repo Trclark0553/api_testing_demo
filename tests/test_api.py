@@ -2,6 +2,7 @@ import requests
 import allure
 import pytest
 from pydantic import BaseModel, ValidationError
+from jsonschema import validate, ValidationError
 
 # Base URL for the API under test (JSONPlaceholder demo API)
 BASE_URL = "https://jsonplaceholder.typicode.com"
@@ -79,6 +80,42 @@ def test_create_post(name, job):
     assert data["name"] == name, "Returned name does not match submitted name"
     assert data["job"] == job, "Returned job does not match submitted job"
     assert "id" in data, "ID field is missing in response payload"
+
+#Define the exepected JSON schema for a post object
+post_schema = {
+    "type": "object",
+    "required": ["userId", "id", "title", "body"],
+    "properties": {
+        "userId": {"type": "integer"},
+        "id": {"type": "integer"},
+        "title": {"type": "string"},
+        "body": {"type": "string"},
+    },
+}
+
+@allure.feature("Posts API")
+@allure.severity(allure.severity_level.NORMAL)
+def test_get_post_jsonschema_validation():
+    """
+    Test: Validate the JSON schema of the retrieved post data
+    Purpose: Ensure the API response adheres to the expected schema (defined above) (positive test)
+    Expected Result: HTTP 200 OK, and response matches JSON schema
+    """
+    response = requests.get(f"{BASE_URL}/posts/1")
+    assert response.status_code == 200, "Expected status code 200 for existing post"
+
+    data = response.json()
+    try:
+        validate(instance=data, schema=post_schema)  # Validate agaist JSON schema
+    except ValidationError as e:
+        # Attach detailed schema validation error to Allure report
+        allure.attach(
+            str(e),
+            name="Schema Validation Error",
+            attachment_type=allure.attachment_type.TEXT,
+        )
+        # Fail the test with a clear message
+        assert False, f"Schema validation failed: {e}"
 
 @allure.feature("Posts API")
 @allure.severity(allure.severity_level.MINOR)
