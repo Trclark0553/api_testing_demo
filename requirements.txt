@@ -4,3 +4,4 @@ allure-pytest
 pydantic
 playwright
 pytest-playwright
+jsonschema
