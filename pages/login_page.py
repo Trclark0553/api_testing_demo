@@ -6,8 +6,8 @@ class LoginPage:
         self.username_field = "input#username"
         self.password_field = "input#password"
         self.submit_button = "button#submit"
-        self.success_msg = "text= Congratulations student. You successfully logged in!"
-        self.error_msg = "text= Invalid username or password."
+        self.success_msg = "text=Congratulations student. You successfully logged in!"
+        self.error_msg = "text=Your username is invalid!"
 
     def login(self, username, password):
         self.page.fill(self.username_field, username)
