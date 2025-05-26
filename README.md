@@ -36,8 +36,9 @@ api-testing-demo/
 ├── tests/
 │   ├── test_api.py                # API functional and schema validation tests
 │   ├── test_ui.py                 # UI smoke tests (homepage and navigation)
-│   └── test_ui_forms.py           # UI form tests using POM
-├── requirements.txt # Python dependencies
+│   ├── test_ui_forms.py           # UI form tests using POM
+│   └── test_ui_dynamic.py         # UI test for dynamic loading elements
+├── requirements.txt # project dependencies
 └── README.md # Project documentation
 ```
 
@@ -57,6 +58,7 @@ api-testing-demo/
   - Homepage title verification and navigation tests.
   - Positive and negative form submission scenarios using Page Object Model (POM).
   - Resuable page class design improves test maintainability and readability.
+  - Includes dynamic UI tests with wait conditions and async element handling.
   - Fully integrated with Allure reporting and CI pipeline.
 - **Allure Reporting:**
   - Integrated with CI pipeline and available via GitHub Pages.
@@ -80,7 +82,9 @@ allure serve allure-results  # Requires Allure CLI installed
 
 ## Planned Enhancements
 
-- Explore test data management and historical reporting for Allure.
-- Add additional UI scenarios with dynamic elements and conditional waits.
+- Add UI automation coverage for modals, dropdowns, and file uploads.
+- Integrate test data management with fixtures or factories.
+- Explore Allure's trend reporting with historical test results.
+- Package project as a template or starter kit for other QA engineers if desired.
 
 ---
