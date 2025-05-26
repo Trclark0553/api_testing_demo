@@ -2,7 +2,7 @@
 import allure
 from playwright.sync_api import sync_playwright
 
-@allure.feature("UIO Dynamic Element Tests")
+@allure.feature("UI Dynamic Element Tests")
 @allure.severity(allure.severity_level.CRITICAL)
 def test_dynamic_content_loading():
     """UI Test: Verify content appears after dynamic load completes."""
