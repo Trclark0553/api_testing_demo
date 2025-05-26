@@ -47,8 +47,9 @@ api-testing-demo/
   - Data-driven request validation with diverse input combinations.
   - Clean separation of happy path and error path testing.
 - **API Schema Validation:**
-  - Validates API response structure using **Pydantic** models.
-  - Fails gracefully with detailed Allure report attachments.
+  - Validates API response structure using both **Pydantic** and **JSONSchema** models.
+  - Demonstates tool flexibility for schem enforcement across Python-based as well as external APIs.
+  - Schema failures are logged with detailed messages in the Allure report.
 - **UI Automation Tests (Playwright):**
   - Homepage title verification and navigation tests.
   - Positive and negative form submission scenarios with screenshot attachments.
@@ -75,7 +76,6 @@ allure serve allure-results  # Requires Allure CLI installed
 
 ## Planned Enhancements
 
-- Add API schema validation using `jsonschema` for broader tool exposure.
 - Explore test data management and historical reporting for Allure.
 - Add additional UI scenarios with dynamic elements and conditional waits.
 
