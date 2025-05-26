@@ -30,10 +30,13 @@ This project demonstrates professional test automation for APIs using **Python**
 api-testing-demo/
 ├── .github/workflows/ci.yml # CI pipeline definition
 ├── postman/ # (In Progress) Postman API collections
+├── pages/                         # Page Object Model components for UI tests
+│   ├── __init__.py
+│   └── login_page.py              # Reusable login page class
 ├── tests/
-│ ├── test_api.py # API functional tests
-│ ├── test_ui.py # UI smoke tests (homepage and navigation)
-│ └── test_ui_forms.py # UI form interaction tests (login scenarios)
+│   ├── test_api.py                # API functional and schema validation tests
+│   ├── test_ui.py                 # UI smoke tests (homepage and navigation)
+│   └── test_ui_forms.py           # UI form tests using POM
 ├── requirements.txt # Python dependencies
 └── README.md # Project documentation
 ```
@@ -52,7 +55,8 @@ api-testing-demo/
   - Schema failures are logged with detailed messages in the Allure report.
 - **UI Automation Tests (Playwright):**
   - Homepage title verification and navigation tests.
-  - Positive and negative form submission scenarios with screenshot attachments.
+  - Positive and negative form submission scenarios using Page Object Model (POM).
+  - Resuable page class design improves test maintainability and readability.
   - Fully integrated with Allure reporting and CI pipeline.
 - **Allure Reporting:**
   - Integrated with CI pipeline and available via GitHub Pages.
