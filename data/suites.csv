@@ -1,62 +1,63 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","27","tests","test_api","","","","test_get_post[10]","
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","50","tests","test_api","","","","test_delete_post","Expected Failure Test: Attempt to delete a post (simulated)"
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","74","tests","test_api","","","","test_create_post[Travis Clark-QA Tester]","
+    Test: Create a new post via POST with various payloads
+    Purpose: Validate that the API successfully accepts new post data (positive test)
+    Expected Result: HTTP 201 Created, and response includes submitted data
+    "
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","38","tests","test_api","","","","test_post_not_found[-1]","
+    Test: Attempt to retrieve non-existent posts
+    Purpose: Validate the API correctly handles invalid post requests (negative test)
+    Expected Result: HTTP 404 Not Found or empty response with HTTP 200 (JSONPlaceholder returns 200)
+    "
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","24","tests","test_api","","","","test_get_post[10]","
     Test: Retrieve a post by ID
     Purpose: Validate the API returns correct post data for multiple valid IDs (positive test)
     Expected Result: HTTP 200 OK, and response contains expected post fields
     "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","20","tests","test_api","","","","test_get_post[5]","
+"passed","Mon May 26 18:09:26 UTC 2025","Mon May 26 18:09:27 UTC 2025","1298","tests","test_ui_forms","","","","test_login_form_success"," UI Test: Validate successful login using Page Object Model (POM) with Playwright "
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","21","tests","test_api","","","","test_get_post[5]","
     Test: Retrieve a post by ID
     Purpose: Validate the API returns correct post data for multiple valid IDs (positive test)
     Expected Result: HTTP 200 OK, and response contains expected post fields
     "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:16 UTC 2025","2598","tests","test_ui","","","","test_homepage_title"," UI Test: Verify the page title of example.com "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","31","tests","test_api","","","","test_get_post_jsonschema_validation","
-    Test: Validate the JSON schema of the retrieved post data
-    Purpose: Ensure the API response adheres to the expected schema (defined above) (positive test)
-    Expected Result: HTTP 200 OK, and response matches JSON schema
-    "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","28","tests","test_api","","","","test_get_post_schema_validation","
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","31","tests","test_api","","","","test_get_post_schema_validation","
     Test: Validate the schema of the retrieved post data
     Purpose: Ensure the API response adheres to the expected schema (positive test)
     Expected Result: HTTP 200 OK, and response matches Pydantic model
     "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","34","tests","test_api","","","","test_create_post[Karl Storz-CEO]","
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","76","tests","test_api","","","","test_create_post[Karl Storz-CEO]","
     Test: Create a new post via POST with various payloads
     Purpose: Validate that the API successfully accepts new post data (positive test)
     Expected Result: HTTP 201 Created, and response includes submitted data
     "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","32","tests","test_api","","","","test_post_not_found[99999]","
-    Test: Attempt to retrieve non-existent posts
-    Purpose: Validate the API correctly handles invalid post requests (negative test)
-    Expected Result: HTTP 404 Not Found or empty response with HTTP 200 (JSONPlaceholder returns 200)
-    "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","34","tests","test_api","","","","test_create_post[Travis Clark-QA Tester]","
+"passed","Mon May 26 18:09:18 UTC 2025","Mon May 26 18:09:20 UTC 2025","1252","tests","test_ui","","","","test_navigation_click"," UI Test: Click a link and verify navigation "
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:18 UTC 2025","1019","tests","test_ui","","","","test_homepage_title"," UI Test: Verify the page title of example.com "
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","70","tests","test_api","","","","test_create_post[Jake Fernanded-Software Engineer]","
     Test: Create a new post via POST with various payloads
     Purpose: Validate that the API successfully accepts new post data (positive test)
     Expected Result: HTTP 201 Created, and response includes submitted data
     "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","37","tests","test_api","","","","test_post_not_found[-1]","
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","28","tests","test_api","","","","test_post_not_found[0]","
     Test: Attempt to retrieve non-existent posts
     Purpose: Validate the API correctly handles invalid post requests (negative test)
     Expected Result: HTTP 404 Not Found or empty response with HTTP 200 (JSONPlaceholder returns 200)
     "
-"passed","Mon May 26 17:28:17 UTC 2025","Mon May 26 17:28:19 UTC 2025","1283","tests","test_ui_forms","","","","test_login_form_success"," UI Test: Validate successful login using Page Object Model (POM) with Playwright "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","37","tests","test_api","","","","test_post_not_found[0]","
+"passed","Mon May 26 18:09:20 UTC 2025","Mon May 26 18:09:26 UTC 2025","6044","tests","test_ui_dynamic","","","","test_dynamic_content_loading","UI Test: Verify content appears after dynamic load completes."
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","23","tests","test_api","","","","test_post_not_found[99999]","
     Test: Attempt to retrieve non-existent posts
     Purpose: Validate the API correctly handles invalid post requests (negative test)
     Expected Result: HTTP 404 Not Found or empty response with HTTP 200 (JSONPlaceholder returns 200)
     "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","37","tests","test_api","","","","test_delete_post","Expected Failure Test: Attempt to delete a post (simulated)"
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","41","tests","test_api","","","","test_get_post[1]","
+"passed","Mon May 26 18:09:27 UTC 2025","Mon May 26 18:09:28 UTC 2025","1079","tests","test_ui_forms","","","","test_login_form_failure"," UI Test: Validate failed login using Page Object Model "
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","28","tests","test_api","","","","test_get_post_jsonschema_validation","
+    Test: Validate the JSON schema of the retrieved post data
+    Purpose: Ensure the API response adheres to the expected schema (defined above) (positive test)
+    Expected Result: HTTP 200 OK, and response matches JSON schema
+    "
+"passed","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","114","tests","test_api","","","","test_get_post[1]","
     Test: Retrieve a post by ID
     Purpose: Validate the API returns correct post data for multiple valid IDs (positive test)
     Expected Result: HTTP 200 OK, and response contains expected post fields
     "
-"passed","Mon May 26 17:28:19 UTC 2025","Mon May 26 17:28:20 UTC 2025","1083","tests","test_ui_forms","","","","test_login_form_failure"," UI Test: Validate failed login using Page Object Model "
-"passed","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","37","tests","test_api","","","","test_create_post[Jake Fernanded-Software Engineer]","
-    Test: Create a new post via POST with various payloads
-    Purpose: Validate that the API successfully accepts new post data (positive test)
-    Expected Result: HTTP 201 Created, and response includes submitted data
-    "
-"skipped","Mon May 26 17:28:13 UTC 2025","Mon May 26 17:28:13 UTC 2025","0","tests","test_api","","","","test_update_post","Skipped Test: Placeholder for future PUT request test"
-"passed","Mon May 26 17:28:16 UTC 2025","Mon May 26 17:28:17 UTC 2025","1275","tests","test_ui","","","","test_navigation_click"," UI Test: Click a link and verify navigation "
+"skipped","Mon May 26 18:09:17 UTC 2025","Mon May 26 18:09:17 UTC 2025","0","tests","test_api","","","","test_update_post","Skipped Test: Placeholder for future PUT request test"
