@@ -84,7 +84,7 @@ allure serve allure-results  # Requires Allure CLI installed
 
 - Add UI automation coverage for modals, dropdowns, and file uploads.
 - Integrate test data management with fixtures or factories.
-- Explore Allure's trend reporting with historical test results.
+- Explore Allure's trend reporting with historical test results. (Do this next).
 - Package project as a template or starter kit for other QA engineers if desired.
 
 ---
