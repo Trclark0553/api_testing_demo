@@ -8,11 +8,11 @@ This project demonstrates professional test automation for APIs using **Python**
 
 ---
 
-## Notes for Hiring Managers
+## Goal
 
-- Demonstrates full-stack QA automation with both API and UI test coverage.
-- Shows real-world CI/CD pipeline configuration and Allure reporting integration.
-- Highlights structured, maintainable test code using best practices and modern tools.
+- To demonstrates full-stack QA automation with both API and UI test coverage.
+- Show real-world CI/CD pipeline configuration and Allure reporting integration.
+- Highlight structured, maintainable test code using best practices and modern tools.
 
 ---
 
